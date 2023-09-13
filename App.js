@@ -1,11 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
+import { StatusBar, StyleSheet, View } from 'react-native';
 import { HomeScreen } from './src/screens/Home';
+
+const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64;
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
+      <ExpoStatusBar style="auto" />
       <HomeScreen/>
     </View>
   );
@@ -14,6 +16,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1f222b'
+    backgroundColor: '#1f222b',
+    paddingTop: statusBarHeight
   },
 });
